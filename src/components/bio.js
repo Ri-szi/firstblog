@@ -7,14 +7,14 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Image from "gatsby-image"
+// import Image from "gatsby-image"
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
       avatar: file(absolutePath: { regex: "/LZH-logo.png/" }) {
         childImageSharp {
-          fixed(width: 120, height: 120, quality: 95) {
+          fixed(quality: 95) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -37,11 +37,11 @@ const Bio = () => {
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social
 
-  const avatar = data?.avatar?.childImageSharp?.fixed
+  // const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
     <div className="bio">
-      {avatar && (
+      {/* {avatar && (
         <Image
           fixed={avatar}
           alt={author?.name || ``}
@@ -51,7 +51,7 @@ const Bio = () => {
             objectFit: "contain",
           }}
         />
-      )}
+      )} */}
       {author?.name && (
         <p>
           Written by <strong>{author.name}</strong>
